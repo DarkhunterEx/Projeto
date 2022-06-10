@@ -8,13 +8,12 @@ int ts(int n){
 	priority_queue<int,vector<int>,greater<int>>a;
 	for(int i=0;i<n;i++){
 		if(d[i]==0){
-			a.push(d[i]);
+			a.push(i);
 		}
 	}
 	while(!a.empty()){
-		int u=a.top();
-		o.push_back(a.top());
-		a.pop();
+		int u=a.top();a.pop();
+		o.push_back(u);
 		for(int i=0;i<c[u].size();i++){
 			d[c[u][i]]--;
 			if(d[c[u][i]]==0) a.push(c[u][i]);
